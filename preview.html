@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Stack Animation Preview</title>
+  <style>
+    :root {
+      --bg-color: #0d1117;
+      --card-bg: #161b22;
+      --border-color: #30363d;
+      --text-color: #c9d1d9;
+      --accent-color: #58a6ff;
+    }
+
+    body.light-mode {
+      --bg-color: #f6f8fa;
+      --card-bg: #ffffff;
+      --border-color: #d0d7de;
+      --text-color: #24292f;
+      --accent-color: #0969da;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    p {
+      color: #8b949e;
+      margin-bottom: 30px;
+    }
+
+    body.light-mode p {
+      color: #57606a;
+    }
+
+    .toggle-btn {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
+    }
+
+    .toggle-btn:hover {
+      border-color: var(--accent-color);
+    }
+
+    .preview-box {
+      border: 1px dashed var(--border-color);
+      padding: 20px;
+      border-radius: 12px;
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.02);
+      transition: all 0.3s ease;
+    }
+
+    body.light-mode .preview-box {
+      background-color: rgba(0, 0, 0, 0.01);
+    }
+
+    /* Embedded SVG should scale nicely */
+    .preview-box img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .instructions {
+      margin-top: 40px;
+      text-align: left;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    .instructions h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+    }
+
+    .instructions code {
+      background-color: rgba(0,0,0,0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    body.light-mode .instructions code {
+      background-color: rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🛠️ Animated Tech Stack SVG</h1>
+    <p>This page previews the custom <code>tech-stack.svg</code> asset we built for your GitHub profile.</p>
+    
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Light/Dark Theme</button>
+    
+    <div class="preview-box">
+      <!-- Reference the SVG directly -->
+      <img id="svg-preview" src="./tech-stack.svg" alt="Animated Tech Stack" width="640" />
+    </div>
+
+    <div class="instructions">
+      <h3>🚀 How to use this in your GitHub Profile</h3>
+      <ol>
+        <li>Upload both <code>README.md</code> and <code>tech-stack.svg</code> to your GitHub profile repository (usually named <code>&lt;username&gt;/&lt;username&gt;</code>).</li>
+        <li>Ensure they are in the same folder (or update the image reference path in <code>README.md</code> if you place the SVG in an assets folder).</li>
+        <li>Commit the changes, and GitHub will render the animated SVG automatically!</li>
+      </ol>
+      <p><em>Note: Because the SVG uses <code>prefers-color-scheme</code> media queries, it will automatically switch styles to match the viewer's GitHub light or dark theme!</em></p>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+      // Force reload the SVG to re-evaluate media queries inside img tag if necessary
+      const img = document.getElementById('svg-preview');
+      const src = img.src.split('?')[0];
+      img.src = src + '?t=' + new Date().getTime();
+    }
+  </script>
+</body>
+</html>
