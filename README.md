@@ -22,11 +22,11 @@
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com/?user=mad88802&theme=default&background=0D1117&ring=E34C26&fire=E34C26&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=E34C26&sideLabels=FFFFFF&dates=8B949E" /> 
+  <img src="https://streak-stats.demolab.com?user=mad88802&theme=default&background=0D1117&ring=E34C26&fire=E34C26&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=E34C26&sideLabels=FFFFFF&dates=8B949E&v=2" /> 
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mad88802&theme=react-dark&hide_border=true" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mad88802&theme=react-dark&hide_border=true&v=2" />
 </p>
 
 ---
